@@ -72,13 +72,28 @@ flatpickr("#quick-date-2", {
   observer.observe(aboutSection);
   
 
+//POP UP
+// Elementi
+const trigger = document.getElementById("quickBookingTrigger");
+const btn = document.getElementById("quickBookingBtn");
+const popup = document.getElementById("requestPopup");
 
+// Otvori popup
+function showPopup() {
+  popup.classList.add("show");
+}
 
+// Zatvori popup klikom van forme
+function hidePopup(e) {
+  if (e.target === popup) {
+    popup.classList.remove("show");
+  }
+}
 
-
-
-
-
+// Event listeneri
+trigger.addEventListener("click", showPopup);
+btn.addEventListener("click", showPopup);
+popup.addEventListener("click", hidePopup);
 
 
 //Hamburger menu

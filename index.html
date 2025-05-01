@@ -43,7 +43,30 @@
 </nav>
 
 <!-- SLIKAA -->
-<section class="hero-yacht"></section>
+<section class="hero-yacht">
+<!-- MOBILNA BOOKING BAR (trigger) -->
+<div class="mobile-booking-bar">
+  <input type="text" placeholder="Where to?" readonly id="quickBookingTrigger" />
+  <button id="quickBookingBtn"><i class="fas fa-calendar-alt"></i></button>
+</div>
+
+<!-- POPUP FORMA ZA MOBILNU VERZIJU -->
+<div class="mobile-request-popup" id="requestPopup">
+  <form class="mobile-request-form" id="popupForm">
+    <input type="text" placeholder="Name" required />
+    <input type="tel" placeholder="Phone Number" required />
+    <input type="date" />
+    <select>
+      <option>Where do you want to go?</option>
+      <option>Koločep</option>
+      <option>Lopud</option>
+      <option>Šipan</option>
+    </select>
+    <button class="request-submit"><i class="fas fa-paper-plane"></i> Request</button>
+  </form>
+</div>
+
+</section>
 
 <!-- BOOK -->
 <section class="quick-request">
@@ -205,7 +228,19 @@
 <section class="nigg">
 
 </section>
-  
+
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-logo">Adriatic Voyage</div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tours">Tours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Adriatic Voyage. All rights reserved.</p>
+  </div>
+</footer>  
   
    
 <!-- Floating buttons -->

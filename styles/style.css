@@ -257,6 +257,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 3rem 1rem;
+    background-color: #f9f9f9;
   }
   
   .request-form-card {
@@ -576,28 +577,179 @@ body {
   .top-line {
     margin-bottom: 2rem; /* prostor ispod gornje linije */
   }
+
+  .request-form-popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .request-form-popup.show {
+    display: flex;
+  }
+
+  .mobile-request-form{
+    display: none;
+  }
+  
   
   .nigg{
     height: 50vh;
   }
+
+  /*---------------------FOOTER------------------------------*/
+  .footer-section {
+    background-color: #000;
+    color: white;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    margin-top: 4rem;
+    overflow: hidden;
+    border-top-left-radius: 60px 40px;
+    border-top-right-radius: 60px 40px;
+  }
   
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
   
+  .footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f6a800;
+    margin-bottom: 1rem;
+  }
   
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
   
+  .footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
   
+  .footer-links a:hover {
+    color: #f6a800;
+  }
   
+  .footer-copy {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
 
 
+/* DEFAULTNO SAKRIJ MOBILNU FORMU */
+.mobile-booking-bar,
+.request-form-popup {
+  display: none;
+}
 
+/* DESKTOP SAMO: prikaži desktop formu */
+@media (min-width: 769px) {
+  .desktop-form {
+    display: flex !important;
+  }
+  .mobile-booking-bar,
+  .request-form-popup {
+    display: none !important;
+  }
+}
 
-
-
-
-
-/* RESPONSIVE */
-
+/* MOBILNA VERZIJA */
 @media (max-width: 768px) {
-  /* Hambić menu */
+  /* MOBILNA BAR FORMA */
+  .mobile-booking-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-radius: 14px;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 340px;
+    position: absolute;
+    top: 89%;
+    justify-self: anchor-center;
+  }
+
+  .mobile-booking-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    background: transparent;
+  }
+
+  .mobile-booking-bar button {
+    background: #f6a800;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+  /* MOBILNA POPUP POZADINA */
+  .mobile-request-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-request-popup.show {
+    display: flex;
+  }
+
+  .mobile-request-form {
+    width: 90%;
+    max-width: 350px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .request-form-card{
+    display: none;
+  }
+
+  /* SAKRIJ DESKTOP FORMU */
+  .desktop-form {
+    display: none !important;
+  }
+
+  /* NAVBAR */
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -641,6 +793,9 @@ body {
 
   .nav-menu.show {
     display: flex;
+    position: absolute;
+    right: 0;
+    width: 50%;
   }
 
   .nav-menu li {
@@ -654,114 +809,76 @@ body {
     font-size: 1.15rem;
   }
 
+  /* KARTICE FLOTE */
+  .fleet-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
 
-
-  /* Quick book meniiii */
-
-  .request-form-card {
-    position: absolute;
-    bottom: 138px;
-    background: white;
-    padding: 2rem;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 320px;
-    height: 100%;
-    max-height: 300px;
-    display: flex;
+  .fleet-cards {
     flex-direction: column;
-    gap: 1.2rem;
-    z-index: 999;
+    align-items: center;
+  }
+
+  .fleet-card {
+    width: 90%;
+  }
+
+  .fleet-card img {
+    height: 200px;
+  }
+
+  .fleet-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .fleet-info p,
+  .fleet-info ul {
+    font-size: 0.9rem;
+  }
+
+  .enquire-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .about-lines-ture {
+    width: 40%;
+    height: 1.5px;
+    background-color: #f5a300;
+    margin: 0 auto;
+    border-radius: 2px;
+    opacity: 50%;
+  }
+
+  .island{
+    flex-direction: column;
+  }
+
+  .island img{
+    width: 100%;
+  }
+
+  .island-info{
+    width: 100%;
+  }
+
+  .quick-request{
+    padding: 0;
+  }
+
 }
 
-
-/* KArtice jedna ispo druge!!!! */
-.fleet-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  margin-top: 5rem;
-}
-
-
-
-
-
-.fleet-cards {
-  flex-direction: column;
-  align-items: center;
-}
-
-.fleet-card {
-  width: 90%; /* zauzmi većinu širine ekrana */
-}
-
-.fleet-card img {
-  height: 200px; /* opcionalno manja visina slike na mobitelu */
-}
-
-.fleet-info h3 {
-  font-size: 1.2rem;
-}
-
-.fleet-info p,
-.fleet-info ul {
-  font-size: 0.9rem;
-}
-
-.enquire-btn {
-  font-size: 0.95rem;
-  padding: 0.6rem 1.2rem;
-}
-
-
-.about-lines-ture {
-  width: 40%;
-  height: 1.5px;
-  background-color: #f5a300;
-  margin: 0 auto;
-  border-radius: 2px;
-  opacity: 50%;
-}
-}
-
-
-
+/* MANJE REZOLUCIJE */
 @media (max-width: 375px) {
-  .request-form-card {
-    position: absolute;
-    bottom: 138px;
-    background: white;
-    padding: 2rem;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
+  .request-form-popup .request-form-card {
     max-width: 300px;
-    height: 100%;
-    max-height: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    z-index: 999;
+  }
 }
-}
-
 
 @media (max-width: 320px) {
-  .request-form-card {
-    position: absolute;
-    bottom: 138px;
-    background: white;
-    padding: 2rem;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
+  .request-form-popup .request-form-card {
     max-width: 250px;
-    height: 100%;
-    max-height: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    z-index: 999;
-}
+  }
 }

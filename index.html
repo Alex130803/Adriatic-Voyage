@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adriatic Voyage</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- vanta -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-left">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+
+  <div class="logo">
+    <img src="assets/img/logo.png" alt="Adriatic Voyage logo">
+  </div>
+
+  <ul class="nav-right">
+    <li><a href="#">Tours</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- SLIKAA -->
+<section class="hero-yacht"></section>
+
+<!-- BOOK -->
+<section class="quick-request">
+    <form class="request-form-card" onsubmit="showThanks(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" id="quick-date-2" placeholder="Date (optional)">
+      </div>
+      <div class="form-row">
+        <select required>
+          <option disabled selected>Where do you want to go?</option>
+          <option>Lopud</option>
+          <option>Kolocep</option>
+          <option>Sipan</option>
+        </select>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
+      </div>
+      <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
+    </form>
+</section>
+
+<!-- OUR FLEET -->
+<section class="fleet-section">
+    <div class="fleet-container">
+      <h2>Our Fleet</h2>
+      <p class="fleet-subtitle">Choose your perfect boat for an unforgettable Adriatic experience.</p>
+  
+      <div class="fleet-cards">
+        <!-- Speedboat -->
+        <div class="fleet-card">
+          <img src="assets/img/gliser.png" alt="Janmor 560 Speedboat" />
+          <div class="fleet-info">
+            <h3>Janmor 560</h3>
+            <p><i class="fas fa-calendar-alt"></i> Year: 2025</p>
+            <p><i class="fas fa-tachometer-alt"></i> Engine: Mercury 115 hp</p>
+            <p><i class="fas fa-user-friends"></i> Capacity: 4 pax</p>
+          
+            <h4><i class="fas fa-check-circle"></i> Price Includes:</h4>
+            <ul>
+              <li><i class="fas fa-ship"></i> Boat</li>
+              <li><i class="fas fa-user-tie"></i> Skipper</li>
+              <li><i class="fas fa-gas-pump"></i> Fuel</li>
+              <li><i class="fas fa-handshake"></i> Pick up & Drop off</li>
+              <li><i class="fas fa-glass-martini-alt"></i> Soft drinks</li>
+              <li><i class="fas fa-swimmer"></i> Snorkeling gear</li>
+            </ul>
+          
+            <button class="enquire-btn"><i class="fas fa-envelope-open-text"></i> Enquire Now</button>
+          </div>
+        </div>
+  
+        <!-- Yacht -->
+        <div class="fleet-card">
+            <img src="assets/img/jahta.jpg" alt="Prestige 36 Yacht" />
+            <div class="fleet-info">
+              <h3>Prestige 36</h3>
+              <p><i class="fas fa-calendar-alt"></i> Year: 2025</p>
+              <p><i class="fas fa-tachometer-alt"></i> Engine: 620 hp</p>
+              <p><i class="fas fa-user-friends"></i> Capacity: 12 pax</p>
+          
+              <h4><i class="fas fa-check-circle"></i> Price Includes:</h4>
+              <ul>
+                <li><i class="fas fa-ship"></i> Boat & Crew</li>
+                <li><i class="fas fa-gas-pump"></i> Fuel</li>
+                <li><i class="fas fa-handshake"></i> Pick up & Drop off</li>
+                <li><i class="fas fa-glass-martini-alt"></i> Drinks</li>
+                <li><i class="fas fa-soap"></i> Towels</li>
+                <li><i class="fas fa-water"></i> SUP Board</li>
+                <li><i class="fas fa-apple-alt"></i> Snack & Fruit</li>
+                <li><i class="fas fa-swimmer"></i> Snorkeling gear</li>
+              </ul>
+          
+              <button class="enquire-btn"><i class="fas fa-envelope-open-text"></i> Enquire Now</button>
+            </div>
+          </div>          
+      </div>
+    </div>
+</section>
+
+<!-- TURE -->
+<section class="island-section">
+    <!-- Stari grad -->
+    <div class="island">
+      <img src="assets/img/dubrovnik-old-town.jpg" alt="Dubrovnik Old Town">
+      <div class="island-info">
+        <h3>Dubrovnik - Old Town</h3>
+        <p>
+        A small, peaceful island close to Dubrovnik. No cars, just clear sea, pine trees, and a couple of quiet villages.
+        Great for swimming and snorkeling in blue and green caves, or relaxing on one of the beaches.
+        </p>
+        <a href="old-town.html" class="explore-btn">
+            <i class="fas fa-arrow-right"></i> Explore More
+        </a>
+      </div>
+    </div>
+    <!-- Koločep -->
+    <div class="island">
+      <img src="assets/img/kolocep.jpg" alt="Koločep Island">
+      <div class="island-info">
+        <h3>Kolocep</h3>
+        <p>
+        A small, peaceful island close to Dubrovnik. No cars, just clear sea, pine trees, and a couple of quiet villages.
+        Great for swimming and snorkeling in blue and green caves, or relaxing on one of the beaches.
+        </p>
+        <a href="kolacep.html" class="explore-btn">
+            <i class="fas fa-arrow-right"></i> Explore More
+        </a>
+      </div>
+    </div>
+  
+    <!-- Lopud -->
+    <div class="island">
+      <img src="assets/img/lopud.jpg" alt="Lopud Island">
+      <div class="island-info">
+        <h3>Lopud</h3>
+        <p>
+        Known for its sandy beach, Šunj, and a chill - mediterranean vibe. The islands offers amazing
+        sea food restaurants, old churches, monasteries, botanical gardens and many nice spots to explore.
+        </p>
+        <a href="kolacep.html" class="explore-btn">
+            <i class="fas fa-arrow-right"></i> Explore More
+        </a>
+      </div>
+    </div>
+  
+    <!-- Šipan -->
+    <div class="island">
+      <img src="assets/img/Sipan.jpg" alt="Šipan Island">
+      <div class="island-info">
+        <h3>Sipan</h3>
+        <p>
+        The biggest of the Elaphiti islands, but still quiet and laid-back. There are two main villages, a bunch of olive trees, history and unbelievable architecture .
+        Good for a slower-paced visit.
+        </p>
+        <a href="kolacep.html" class="explore-btn">
+            <i class="fas fa-arrow-right"></i> Explore More
+        </a>
+      </div>
+    </div>
+</section>
+
+<!-- Floating buttons  I KONCANTE-->
+<section class="about-lock" id="about">
+  <div class="about-snap">
+    <div class="about-lines top-line"></div> <!-- gornja linija -->
+    <h2>About Us</h2>
+    <p class="step">We're a young, ambitious team of locals who fell in love with the sea—and now we want to share that passion with you.</p>
+    <p class="step">Based in Dubrovnik, we offer unforgettable boat experiences that explore hidden caves, crystal clear sea, and the stunning coastline we call home.</p>
+    <p class="step">Whether you're looking for adventure or relaxation, we’re here to give you a personalized and authentic experience on the Adriatic tailored to your needs.</p>
+    <div class="about-icon">
+      <i class="fas fa-compass"></i>
+    </div>
+  </div>
+</section>
+
+  
+<section class="nigg">
+
+</section>
+  
+  
+   
+<!-- Floating buttons -->
+<div class="floating-buttons">
+  <button class="request-btn" onclick="openPopup()">
+    <i class="fas fa-ship"></i> Request a Boat
+  </button>
+  <a href="https://wa.me/XXXXXXXXXXX" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- Popup form -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Request a Boat</h2>
+    <form>
+      <input type="text" id="date" placeholder="Preferred date">
+      <input type="text" placeholder="*Name" required>
+      <input type="email" placeholder="*Email" required>
+      <input type="tel" placeholder="*Phone" required>
+      <input type="number" placeholder="Passengers">
+      <select required>
+        <option selected disabled>*Select a destination</option>
+        <option>Lopud</option>
+        <option>Kolocep</option>
+        <option>Sipan</option>
+      </select>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="scripts/script.js" defer></script>
+</body>
+</html>

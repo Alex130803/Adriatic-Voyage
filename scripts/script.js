@@ -71,3 +71,24 @@ flatpickr("#quick-date-2", {
   
   observer.observe(aboutSection);
   
+
+
+
+
+
+
+
+
+
+
+//Hamburger menu
+
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+  hamburger.textContent = hamburger.textContent === '☰' ? '✖' : '☰';
+});
+

@@ -17,16 +17,26 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <ul class="nav-left">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
+  <div class="hamburger" id="hamburger">☰</div>
 
   <div class="logo">
     <img src="assets/img/logo.png" alt="Adriatic Voyage logo">
   </div>
 
-  <ul class="nav-right">
+  <!-- Jedinstvena vertikalna navigacija za mobile -->
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Tours</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <!-- Desktop navigacija (sakrivena u mobile prikazu) -->
+  <ul class="nav-left desktop-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <ul class="nav-right desktop-nav">
     <li><a href="#">Tours</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
@@ -130,11 +140,12 @@
         </a>
       </div>
     </div>
+    <div class="about-lines-ture top-line"></div>
     <!-- Koločep -->
     <div class="island">
       <img src="assets/img/kolocep.jpg" alt="Koločep Island">
       <div class="island-info">
-        <h3>Kolocep</h3>
+        <h3>Koločep</h3>
         <p>
         A small, peaceful island close to Dubrovnik. No cars, just clear sea, pine trees, and a couple of quiet villages.
         Great for swimming and snorkeling in blue and green caves, or relaxing on one of the beaches.
@@ -144,7 +155,7 @@
         </a>
       </div>
     </div>
-  
+    <div class="about-lines-ture top-line"></div>
     <!-- Lopud -->
     <div class="island">
       <img src="assets/img/lopud.jpg" alt="Lopud Island">
@@ -159,12 +170,12 @@
         </a>
       </div>
     </div>
-  
+    <div class="about-lines-ture top-line"></div>
     <!-- Šipan -->
     <div class="island">
       <img src="assets/img/Sipan.jpg" alt="Šipan Island">
       <div class="island-info">
-        <h3>Sipan</h3>
+        <h3>Šipan</h3>
         <p>
         The biggest of the Elaphiti islands, but still quiet and laid-back. There are two main villages, a bunch of olive trees, history and unbelievable architecture .
         Good for a slower-paced visit.

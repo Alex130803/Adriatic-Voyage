@@ -14,6 +14,49 @@ body {
     box-shadow: 0 6px 10px rgba(0,0,0,0.05);
     z-index: 10;
   }
+
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 20;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .nav-menu li {
+    list-style: none;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    font-size: 1.15rem;
+  }
+  
+ 
+  .nav-menu.show {
+    display: flex;
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+  }
   
   .navbar::after {
     content: '';
@@ -543,3 +586,182 @@ body {
   
   
   
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  /* Hambić menu */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 2.7rem 2rem;
+  }
+
+  .logo {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none !important;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f6a800;
+    width: 100%;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 15;
+    margin-top: 1rem;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-menu li {
+    list-style: none;
+  }
+
+  .nav-menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    font-size: 1.15rem;
+  }
+
+
+
+  /* Quick book meniiii */
+
+  .request-form-card {
+    position: absolute;
+    bottom: 138px;
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 999;
+}
+
+
+/* KArtice jedna ispo druge!!!! */
+.fleet-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 5rem;
+}
+
+
+
+
+
+.fleet-cards {
+  flex-direction: column;
+  align-items: center;
+}
+
+.fleet-card {
+  width: 90%; /* zauzmi većinu širine ekrana */
+}
+
+.fleet-card img {
+  height: 200px; /* opcionalno manja visina slike na mobitelu */
+}
+
+.fleet-info h3 {
+  font-size: 1.2rem;
+}
+
+.fleet-info p,
+.fleet-info ul {
+  font-size: 0.9rem;
+}
+
+.enquire-btn {
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+}
+
+
+.about-lines-ture {
+  width: 40%;
+  height: 1.5px;
+  background-color: #f5a300;
+  margin: 0 auto;
+  border-radius: 2px;
+  opacity: 50%;
+}
+}
+
+
+
+@media (max-width: 375px) {
+  .request-form-card {
+    position: absolute;
+    bottom: 138px;
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 999;
+}
+}
+
+
+@media (max-width: 320px) {
+  .request-form-card {
+    position: absolute;
+    bottom: 138px;
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 250px;
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 999;
+}
+}

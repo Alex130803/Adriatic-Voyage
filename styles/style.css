@@ -1178,7 +1178,7 @@ body {
     animation: fadeSlideIn 1.2s ease-out 3.4s forwards;
     font-weight: lighter;
   }
-
+  
   .fleet-card.from-right:not(.visible) {
     transform: translateX(-150px) !important;
   }

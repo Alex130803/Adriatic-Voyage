@@ -805,6 +805,25 @@ body {
     top: 89%;
     justify-self: anchor-center;
   }
+  
+  .fleet-card.from-right {
+    animation: slideInLeft 0.8s ease forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .floating-buttons{
+    right: 5%;
+  }
 
   .mobile-booking-bar input {
     border: none;
@@ -822,6 +841,8 @@ body {
     font-size: 1.2rem;
     color: #000;
   }
+
+  
 
   /* MOBILNA POPUP POZADINA */
   .mobile-request-popup {

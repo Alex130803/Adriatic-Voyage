@@ -17,7 +17,7 @@ body {
   
   .navbar {
     position: relative;
-    background-color: #f6a800;
+    background-color: #003B6F;
     padding: 2.7rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -96,7 +96,7 @@ body {
   .nav-right li a {
     font-size: 1.15rem;
     text-decoration: none;
-    color: #111;
+    color: #ffffff;
     font-weight: 600;
     position: relative;
     transition: color 0.3s ease;
@@ -164,13 +164,13 @@ body {
   }
   
   .request-btn {
-    background-color: #f6a800;
+    background-color: #003B6F;
     border: none;
-    color: black;
+    color: rgb(255, 252, 252);
     font-weight: 600;
     padding: 12px 20px;
     border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: background 0.3s ease;
     font-size: 16px;
@@ -181,7 +181,7 @@ body {
   }
   
   .request-btn:hover {
-    background-color: #e09100;
+    background-color: #0084ff;
   }
   
   .whatsapp-btn {
@@ -248,7 +248,7 @@ body {
   }
   
   .popup-content button:hover {
-    background-color: #e09100;
+    background-color: #0084ff;
   }
   
   .close-btn {
@@ -314,9 +314,9 @@ body {
   
   .request-form-card button {
     padding: 0.9rem 1.5rem;
-    background-color: #f6a800;
+    background-color: #003B6F;
     border: none;
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 1rem;
     border-radius: 10px;
@@ -329,7 +329,7 @@ body {
   }
   
   .request-form-card button:hover {
-    background-color: #e09100;
+    background-color: #0084ff;
   }
   
   #thanks-msg {
@@ -407,7 +407,7 @@ body {
   }
   
   .highlight-adriatic {
-    color: #f6a800; /* npr. duboko tirkizna */
+    color: #003B6F; /* npr. duboko tirkizna */
   }
   
 /*OUR FLEET*/
@@ -527,15 +527,15 @@ body {
 .fleet-info p i,
 .fleet-info ul li i,
 .fleet-info h4 i {
-  color: #f6a800;
+  color: #003B6F;
   margin-right: 6px;
 }
 
 .enquire-btn {
     margin-top: auto;
     align-self: center;
-    background-color: #f6a800;
-    color: black;
+    background-color: #003B6F;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -551,7 +551,7 @@ body {
 }
 
 .enquire-btn:hover {
-  background-color: #e09100;
+  background-color: #0084ff;
 }
 
 /*TURE ALOO*/
@@ -619,8 +619,8 @@ body {
   .explore-btn {
     display: inline-block;
     margin-top: 1.2rem;
-    background-color: #f6a800;
-    color: #000;
+    background-color: #003B6F;
+    color: #ffffff;
     font-weight: 600;
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
@@ -649,10 +649,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #f5d76e, #f7e8aa, #ffffff, #f5d76e);
+  background: linear-gradient(-45deg, #003b6f, #003B6F, #ffffff, #5582a8);
   background-size: 400% 400%;
   animation: gradientFlow 30s ease infinite;
-  color: #111;
+  color: #ffffff;
 }
 
 @keyframes gradientFlow {
@@ -691,7 +691,7 @@ body {
   .about-icon {
     margin-top: 1rem;
     font-size: 3.4rem;
-    color: #f6a800;
+    color: #003B6F;
     padding: 0.7rem 0.8rem;
     display: inline-block;
 
@@ -700,7 +700,7 @@ body {
   .about-lines {
     width: 20%;
     height: 3px;
-    background-color: #f5a300; /* narandžasta */
+    background-color: #003B6F; /* narandžasta */
     margin: 0 auto;
     border-radius: 2px;
   }
@@ -767,7 +767,7 @@ body {
       border-radius: 16px;
       padding: 2rem;
       box-sizing: border-box;
-      border-bottom: 2px solid #f6a800;
+      border-bottom: 2px solid #003B6F;
     }
     
     .carousel-slide img {
@@ -786,18 +786,18 @@ body {
     
     .review-rating {
       font-size: 1.3rem;
-      color: #f6a800;
+      color: #003B6F;
       font-weight: bold;
     }
     
     .carousel-btn {
-      background: #f6a800;
+      background: #003B6F;
       border: none;
       padding: 0.6rem 1rem;
       font-size: 1.8rem;
       cursor: pointer;
       border-radius: 50%;
-      color: black;
+      color: rgb(255, 255, 255);
       z-index: 5;
       position: absolute;
       top: 50%;
@@ -844,7 +844,7 @@ body {
   .footer-logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #f6a800;
+    color: #003B6F;
     margin-bottom: 1rem;
   }
   
@@ -1070,7 +1070,7 @@ body {
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: #f6a800;
+    background-color: #0084ff;
     width: 100%;
     padding: 1.5rem 0;
     gap: 1.5rem;

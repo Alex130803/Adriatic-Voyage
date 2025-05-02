@@ -912,14 +912,13 @@ body {
     justify-self: anchor-center !important;
   }
 
-  .fleet-card.from-right.visible,
-  .fleet-card.from-left.visible {
+  .fleet-card.from-right.visible {
     transform: translateX(0);
     opacity: 1;
   }
 
   .fleet-card.from-right {
-    transform: translateX(-100px); /* kao da je from-left */
+    transform: translateX(-150px); /* kao from-left */
   }
 
   .fleet-card {
@@ -1156,6 +1155,10 @@ body {
     opacity: 0;
     transform: translateY(40px);
     animation: fadeSlideIn 1.2s ease-out 3.4s forwards;
+  }
+
+  .fleet-card.from-right:not(.visible) {
+    transform: translateX(-150px) !important;
   }
 }
 

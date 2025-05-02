@@ -879,7 +879,7 @@ body {
   .step{
     line-height: 1.2;
   }
-  
+
   .footer-section{
     padding-bottom: 5rem;
   }
@@ -909,11 +909,12 @@ body {
     max-width: 340px;
     position: absolute;
     top: 89%;
-    justify-self: anchor-center;
+    justify-self: anchor-center !important;
   }
   
   .fleet-card.from-right {
-    animation: slideInLeft 0.8s ease forwards;
+    transition: transform 1.4s ease-out, opacity 1.4s ease-out;
+    will-change: transform, opacity;
   }
 
   @keyframes slideInLeft {

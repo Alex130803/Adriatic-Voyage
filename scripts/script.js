@@ -105,7 +105,7 @@ flatpickr("#quick-date-2", {
   }
   
   // SCROLL TRIGGER (IntersectionObserver)
-  const thresholdValue = window.innerWidth <= 768 ? 0.8 : 1; // mobile: 0.8, desktop: 1
+  const thresholdValue = window.innerWidth <= 768 ? 0.6 : 1; // mobile: 0.8, desktop: 1
 
   const observer = new IntersectionObserver((entries, obs) => {
     if (entries[0].isIntersecting) {

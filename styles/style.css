@@ -201,23 +201,28 @@ body {
   
   /* Popup styling */
   .popup-overlay {
-    display: none;
     position: fixed;
-    inset: 0;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none; /* prikazuje se kad se otvori */
+  justify-content: center !important; /* centriranje horizontalno */
+  align-items: center !important;     /* centriranje vertikalno */
+  z-index: 9999;
   }
   
   .popup-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
     width: 90%;
-    max-width: 600px;
     position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
+  
   
   .popup-content h2 {
     margin-top: 0;
@@ -1190,4 +1195,121 @@ body {
   .request-form-popup .request-form-card {
     max-width: 250px;
   }
+}
+
+
+
+
+
+
+/* Modal osnovni stil */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  max-width: 900px;
+  width: 95%;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Slider */
+.modal-slider {
+  position: relative;
+  overflow: hidden;
+  max-height: 350px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.modal-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.slide {
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Tekst */
+.modal-description h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+.modal-description p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Zatvaranje */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(0,0,0,0.5); /* opcionalno za bolju vidljivost */
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+/* Responsive dizajn */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-description h2 {
+    font-size: 20px;
+  }
+
+  .modal-description p {
+    font-size: 15px;
+  }
+
+  .prev, .next {
+    padding: 8px 12px;
+    font-size: 18px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

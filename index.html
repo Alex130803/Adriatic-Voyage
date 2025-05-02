@@ -72,7 +72,7 @@
 </section>
 
 <!-- BOOK -->
-<section class="quick-request">
+<section id="booking" class="quick-request">
     <form class="request-form-card" onsubmit="showThanks(event)">
       <div class="form-row">
         <input type="text" placeholder="Name" required>
@@ -87,6 +87,14 @@
           <option>Sipan</option>
           <option>Old town</option>
           <option>Captain's choice</option>
+        </select>
+        <select required>
+          <option selected disabled>Select a duration</option>
+          <option>2h</option>
+          <option>4h</option>
+          <option>6h</option>
+          <option>8h</option>
+  
         </select>
         <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
       </div>
@@ -114,6 +122,9 @@
             <p><i class="fas fa-calendar-alt"></i> Year: 2025</p>
             <p><i class="fas fa-tachometer-alt"></i> Engine: Mercury 115 hp</p>
             <p><i class="fas fa-user-friends"></i> Capacity: 4 pax</p>
+            <p><i class="fas fa-money-bill-wave"></i> Price start from: <strong>€290</strong></p>
+            <br>
+              <br>
           
             <h4><i class="fas fa-check-circle"></i> Price Includes:</h4>
             <ul>
@@ -125,7 +136,10 @@
               <li><i class="fas fa-swimmer"></i> Snorkeling gear</li>
             </ul>
           
-            <button class="enquire-btn"><i class="fas fa-envelope-open-text"></i> Enquire Now</button>
+            <button class="enquire-btn" onclick="openPopup()">
+              <i class="fas fa-envelope-open-text"></i> Enquire Now
+            </button>
+            
           </div>
         </div>
   
@@ -137,7 +151,10 @@
               <p><i class="fas fa-calendar-alt"></i> Year: 2025</p>
               <p><i class="fas fa-tachometer-alt"></i> Engine: 620 hp</p>
               <p><i class="fas fa-user-friends"></i> Capacity: 12 pax</p>
-          
+              <p><i class="fas fa-money-bill-wave"></i> Price start from: <strong>€800</strong></p>
+              <br>
+              <br>
+              
               <h4><i class="fas fa-check-circle"></i> Price Includes:</h4>
               <ul>
                 <li><i class="fas fa-ship"></i> Boat & Crew</li>
@@ -150,7 +167,9 @@
                 <li><i class="fas fa-swimmer"></i> Snorkeling gear</li>
               </ul>
           
-              <button class="enquire-btn"><i class="fas fa-envelope-open-text"></i> Enquire Now</button>
+              <button class="enquire-btn" onclick="openPopup()">
+                <i class="fas fa-envelope-open-text"></i> Enquire Now
+              </button>
             </div>
           </div>          
       </div>
@@ -168,8 +187,8 @@
         A small, peaceful island close to Dubrovnik. No cars, just clear sea, pine trees, and a couple of quiet villages.
         Great for swimming and snorkeling in blue and green caves, or relaxing on one of the beaches.
         </p>
-        <a href="old-town.html" class="explore-btn">
-            <i class="fas fa-arrow-right"></i> Explore More
+        <a href="javascript:void(0);" class="explore-btn" onclick="openModal('modal-oldtown')">
+          <i class="fas fa-arrow-right"></i> Explore More
         </a>
       </div>
     </div>
@@ -183,8 +202,8 @@
         A small, peaceful island close to Dubrovnik. No cars, just clear sea, pine trees, and a couple of quiet villages.
         Great for swimming and snorkeling in blue and green caves, or relaxing on one of the beaches.
         </p>
-        <a href="kolacep.html" class="explore-btn">
-            <i class="fas fa-arrow-right"></i> Explore More
+        <a href="javascript:void(0);" class="explore-btn" onclick="openModal('modal-kolocep')">
+          <i class="fas fa-arrow-right "></i> Explore More
         </a>
       </div>
     </div>
@@ -198,8 +217,8 @@
         Known for its sandy beach, Šunj, and a chill - mediterranean vibe. The islands offers amazing
         sea food restaurants, old churches, monasteries, botanical gardens and many nice spots to explore.
         </p>
-        <a href="kolacep.html" class="explore-btn">
-            <i class="fas fa-arrow-right"></i> Explore More
+        <a href="javascript:void(0);" class="explore-btn" onclick="openModal('modal-lopud')">
+          <i class="fas fa-arrow-right"></i> Explore More
         </a>
       </div>
     </div>
@@ -213,8 +232,8 @@
         The biggest of the Elaphiti islands, but still quiet and laid-back. There are two main villages, a bunch of olive trees, history and unbelievable architecture .
         Good for a slower-paced visit.
         </p>
-        <a href="kolacep.html" class="explore-btn">
-            <i class="fas fa-arrow-right"></i> Explore More
+        <a href="javascript:void(0);" class="explore-btn" onclick="openModal('modal-sipan')">
+          <i class="fas fa-arrow-right"></i> Explore More
         </a>
       </div>
     </div>
@@ -296,23 +315,132 @@
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
     <h2>Request a Boat</h2>
-    <form>
-      <input type="text" id="date" placeholder="Preferred date">
-      <input type="text" placeholder="*Name" required>
-      <input type="email" placeholder="*Email" required>
-      <input type="tel" placeholder="*Phone" required>
-      <input type="number" placeholder="Passengers">
-      <select required>
+    <form id="enquiry-form">
+      <input type="date" name="date" required>
+      <input type="text" name="name" placeholder="*Name" required>
+      <input type="email" name="email" placeholder="*Email" required>
+      <input type="tel" name="phone" placeholder="*Phone" required>
+      <input type="number" name="passengers" placeholder="Passengers">
+
+      <select name="destination" required>
         <option selected disabled>*Select a destination</option>
         <option>Lopud</option>
-        <option>Kolocep</option>
-        <option>Sipan</option>
+        <option>Koločep</option>
+        <option>Šipan</option>
+        <option>Old town</option>
+        <option>Captain's choice</option>
       </select>
-      <textarea placeholder="Message"></textarea>
+
+      <select name="duration" required>
+        <option selected disabled>*Select a duration</option>
+        <option>2h</option>
+        <option>4h</option>
+        <option>6h</option>
+        <option>8h</option>
+      </select>
+
+      <textarea name="message" placeholder="Message"></textarea>
       <button type="submit">Send Request</button>
     </form>
+    <div id="success-message" style="display:none; margin-top:15px; color:green;">
+      <h2>✅ Thank you!</h2>
+      <p>Our team will contact you shortly.</p>
+    </div>
   </div>
 </div>
+
+
+
+
+
+<!-- ✅ MODAL Koločep sa sliderom i opisom -->
+<div id="modal-kolocep" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-kolocep')">&times;</span>
+    <div class="modal-body">
+      <div class="modal-slider">
+        <div class="slide active"><img src="assets/img/kalamotamain.jpg" alt="Koločep 1"></div>
+        <div class="slide"><img src="assets/img/kolocep3.jpg" alt="Koločep 2"></div>
+        <div class="slide"><img src="assets/img/kolocep4.jpg" alt="Koločep 3"></div>
+        <button class="prev" onclick="prevSlide()">‹</button>
+        <button class="next" onclick="nextSlide()">›</button>
+      </div>
+      <div class="modal-description">
+        <h2>Koločep Island – Boat Tour Paradise</h2>
+        <p>
+          Cruising toward Koločep by boat reveals stunning sea cliffs, hidden caves, and lush greenery. As your boat glides along its turquoise shoreline, you’ll discover secret coves perfect for swimming and snorkeling. The highlight is the Blue Cave — accessible only from the sea — where sunlight reflects off the sandy seabed, illuminating the water in glowing blue tones. A boat tour around Koločep is a peaceful escape into untouched nature.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ MODAL Old Town sa sliderom i opisom -->
+<div id="modal-oldtown" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-oldtown')">&times;</span>
+    <div class="modal-body">
+      <div class="modal-slider">
+        <div class="slide active"><img src="assets/img/dubrovnikmain.jpg" alt="Old Town 1"></div>
+        <div class="slide"><img src="img/oldtown2.jpg" alt="Old Town 2"></div>
+        <div class="slide"><img src="img/oldtown3.jpg" alt="Old Town 3"></div>
+        <button class="prev" onclick="prevSlide()">‹</button>
+        <button class="next" onclick="nextSlide()">›</button>
+      </div>
+      <div class="modal-description">
+        <h2>Dubrovnik Old Town – Views from the Sea</h2>
+        <p>
+          Seeing Dubrovnik’s ancient city walls rise from the sea is an unforgettable sight. From your boat, you’ll enjoy panoramic views of the majestic fortresses, red-tiled rooftops, and historic towers. A boat tour around the Old Town offers a unique angle of this UNESCO gem, far from the crowds, with the Adriatic stretching endlessly beyond. Sunset cruises here are especially magical, as the golden light kisses the walls and sea.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ MODAL Lopud sa sliderom i opisom -->
+<div id="modal-lopud" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-lopud')">&times;</span>
+    <div class="modal-body">
+      <div class="modal-slider">
+        <div class="slide active"><img src="assets/img/lopudmain.jpg" alt="Lopud 1"></div>
+        <div class="slide"><img src="assets/img/sunjmain.jpg" alt="Lopud 2"></div>
+        <div class="slide"><img src="assets/img/sunj2.jpeg" alt="Lopud 3"></div>
+        <button class="prev" onclick="prevSlide()">‹</button>
+        <button class="next" onclick="nextSlide()">›</button>
+      </div>
+      <div class="modal-description">
+        <h2>Lopud Island – Sandy Shores by Sea</h2>
+        <p>
+          Approaching Lopud by boat offers unforgettable views of its pine-covered hills and golden beaches. The boat gently docks near Šunj Beach, a wide, shallow bay ideal for swimming and relaxing directly from the deck. The island’s old port town creates a picturesque backdrop with stone buildings and palm trees lining the shore. A Lopud tour by sea lets you experience the best of Dalmatia — calm waters, soft sand, and a warm local welcome.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ MODAL Šipan sa sliderom i opisom -->
+<div id="modal-sipan" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal-sipan')">&times;</span>
+    <div class="modal-body">
+      <div class="modal-slider">
+        <div class="slide active"><img src="assets/img/sipanmain.jpg" alt="Šipan 1"></div>
+        <div class="slide"><img src="assets/img/Sipanska-luka-03.jpg" alt="Šipan 2"></div>
+        <div class="slide"><img src="img/sipan3.jpg" alt="Šipan 3"></div>
+        <button class="prev" onclick="prevSlide()">‹</button>
+        <button class="next" onclick="nextSlide()">›</button>
+      </div>
+      <div class="modal-description">
+        <h2>Šipan Island – Scenic Voyage & Authentic Charm</h2>
+        <p>
+          As you approach Šipan by boat, you’re welcomed by peaceful bays, olive groves, and old stone villas visible right from the sea. The journey along the island’s coast is calm and scenic — perfect for relaxing on deck or taking a dip in clear waters. Small harbors like Suđurađ offer charming stops where you can walk the waterfront and enjoy local wine. A Šipan boat tour is all about tradition, taste, and tranquil beauty.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

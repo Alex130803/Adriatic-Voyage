@@ -283,3 +283,108 @@ window.addEventListener("load", () => {
   
   
   
+
+//popup view/hide
+
+
+function openPopup() {
+  document.getElementById("popup").style.display = "flex";
+
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+
+
+
+
+document.getElementById("enquiry-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // spriječi reload
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("php/posalji.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    if (data.trim() === "OK") {
+      form.style.display = "none";
+      document.getElementById("success-message").style.display = "block";
+    } else {
+      alert("Greška: " + data);
+    }
+  })
+  .catch(error => {
+    alert("Došlo je do greške.");
+    console.error(error);
+  });
+});
+
+
+
+
+
+
+//MODAL
+
+
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+window.onclick = function(event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+
+
+
+
+
+
+let currentSlide = 0;
+
+function showSlide(index) {
+  const slides = document.querySelectorAll("#modal-kolocep .slide");
+  if (index >= slides.length) currentSlide = 0;
+  if (index < 0) currentSlide = slides.length - 1;
+
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === currentSlide) slide.classList.add("active");
+  });
+}
+
+function nextSlide() {
+  currentSlide++;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide--;
+  showSlide(currentSlide);
+}
+
+function openModal(id) {
+  document.getElementById(id).style.display = "flex";
+  currentSlide = 0;
+  showSlide(currentSlide);
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+

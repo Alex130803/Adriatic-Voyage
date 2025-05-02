@@ -5,6 +5,15 @@ body {
     padding: 0;
     overflow-x: hidden;
   }
+
+  #island-section {
+    scroll-margin-top: 100px; /* prilagodi prema visini fiksnog headera */
+    transition: 3s ease;
+  }
+
+  #about1{
+    scroll-margin-top: 50px !important;
+  }
   
   .navbar {
     position: relative;

@@ -31,17 +31,16 @@ flatpickr("#quick-date-2", {
   const aboutSection = document.querySelector('.about-lock');
   let currentStep = 0;
   let locked = false;
-  let observerStarted = false;
   let isScrolling = false;
   
-  // Blokira normalni scroll kad zaključano
+  // LOCK SCROLL
   function lockScroll(e) {
     if (locked) e.preventDefault();
   }
   
-  // Koristi se za deltaY (wheel) i direction (touch)
+  // CHANGE STEP
   function changeStep(direction) {
-    if (isScrolling) return; // sprječava spam
+    if (isScrolling) return;
     isScrolling = true;
   
     if (direction === 'down' && currentStep < steps.length) {
@@ -52,38 +51,35 @@ flatpickr("#quick-date-2", {
       steps[currentStep].classList.remove('revealed');
     }
   
-    // Otključaj scroll kad su svi prikazani
     if (currentStep === steps.length) {
       setTimeout(() => {
         locked = false;
-        window.removeEventListener('wheel', lockScroll);
-        window.removeEventListener('touchmove', lockScroll);
+        window.removeEventListener('wheel', lockScroll, { passive: false });
+        window.removeEventListener('touchmove', lockScroll, { passive: false });
         window.removeEventListener('wheel', handleWheel, { passive: false });
-        window.removeEventListener('touchstart', handleTouchStart);
-        window.removeEventListener('touchend', handleTouchEnd);
+        window.removeEventListener('touchstart', handleTouchStart, { passive: false });
+        window.removeEventListener('touchend', handleTouchEnd, { passive: false });
         aboutSection.style.height = 'auto';
       }, 600);
     }
   
-    // Pauza između koraka (debounce)
     setTimeout(() => {
       isScrolling = false;
     }, 400);
   }
   
-  // Scroll kotačić
+  // WHEEL EVENT
   function handleWheel(e) {
     if (!locked) return;
     const direction = e.deltaY > 0 ? 'down' : 'up';
     changeStep(direction);
   }
   
-  // Touch podrška za mobitel
+  // TOUCH SUPPORT
   let startY = 0;
   function handleTouchStart(e) {
     startY = e.touches[0].clientY;
   }
-  
   function handleTouchEnd(e) {
     const endY = e.changedTouches[0].clientY;
     const diff = startY - endY;
@@ -93,24 +89,35 @@ flatpickr("#quick-date-2", {
     }
   }
   
-  // Observer pokreće skriptu kad sekcija uđe u viewport
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !observerStarted) {
-        locked = true;
-        observerStarted = true;
+  // INIT WHEN SECTION IS VISIBLE
+  function startScrollLock() {
+    if (locked) return;
   
-        window.addEventListener('wheel', lockScroll, { passive: false });
-        window.addEventListener('touchmove', lockScroll, { passive: false });
+    locked = true;
+    aboutSection.style.height = '100vh';
   
-        window.addEventListener('wheel', handleWheel, { passive: false });
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchend', handleTouchEnd);
-      }
-    });
-  }, { threshold: 1 });
+    window.addEventListener('wheel', lockScroll, { passive: false });
+    window.addEventListener('touchmove', lockScroll, { passive: false });
   
-  observer.observe(aboutSection);
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
+  }
+  
+  // SCROLL TRIGGER (IntersectionObserver)
+  const thresholdValue = window.innerWidth <= 768 ? 0.8 : 1; // mobile: 0.8, desktop: 1
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) {
+      startScrollLock(); // ili bilo koja druga funkcija
+      obs.disconnect();
+    }
+  }, {
+    threshold: thresholdValue
+  });
+  
+  observer.observe(document.querySelector('.about-lock'));
+  
   
 
 //POP UP
@@ -242,4 +249,37 @@ document.addEventListener("DOMContentLoaded", function () {
   
     observer.observe(heading);
   });
+
+// REVIEWS
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".carousel-slide");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const nextBtn = document.querySelector(".carousel-btn.next");
+
+let index = 0;
+
+function updateSlider() {
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+}
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlider();
+});
+
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  updateSlider();
+});
+
+window.addEventListener("resize", updateSlider);
+
+window.addEventListener("load", () => {
+  updateSlider();
+});
+
+
+  
+  
   

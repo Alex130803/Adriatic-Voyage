@@ -255,6 +255,12 @@ body {
   
 /* BOOK LANDING */
 /* New card-styled request form */
+.width_za_formu{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .quick-request {
     display: flex;
     justify-content: center;

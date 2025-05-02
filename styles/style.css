@@ -911,10 +911,38 @@ body {
     top: 89%;
     justify-self: anchor-center !important;
   }
-  
+
+  .fleet-card.from-right.visible,
+  .fleet-card.from-left.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   .fleet-card.from-right {
-    transition: transform 1.4s ease-out, opacity 1.4s ease-out;
-    will-change: transform, opacity;
+    transform: translateX(-100px); /* kao da je from-left */
+  }
+
+  .fleet-card {
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 0.8s ease;
+  }
+  
+  .fleet-card.from-left.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .fleet-card.from-right.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .fleet-card.from-left {
+    transform: translateX(-100px);
+  }
+  .fleet-card.from-right {
+    transform: translateX(100px);
   }
 
   @keyframes slideInLeft {

@@ -905,8 +905,8 @@ body {
     padding: 0.6rem 1rem;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin: 1.5rem auto;
-    width: 90%;
-    max-width: 340px;
+    width: 100%;
+    max-width: 398px;
     position: absolute;
     top: 89%;
     justify-self: anchor-center !important;

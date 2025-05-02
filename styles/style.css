@@ -323,9 +323,34 @@ body {
   
   #thanks-msg.visible {
     display: block;
+  } 
+  .animated-heading {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 60px;
   }
-
-
+  
+  .animated-heading.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .animated-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+  }
+  
+  .animated-text.visible span {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
   .animated-title-onload  {
     text-align: center;
     font-size: 2.8rem;

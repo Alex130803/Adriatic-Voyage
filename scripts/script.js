@@ -198,3 +198,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const textEl = document.querySelector('.animated-text');
+    const text = textEl.textContent;
+    textEl.innerHTML = '';
+  
+    // Podijeli slova i dodaj span s delayem
+    for (let i = 0; i < text.length; i++) {
+      const span = document.createElement('span');
+      span.textContent = text[i] === ' ' ? '\u00A0' : text[i]; // \u00A0 = &nbsp;
+      span.style.transitionDelay = `${i * 40}ms`;
+      textEl.appendChild(span);
+    }
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          textEl.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    observer.observe(textEl);
+  });
+  
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const heading = document.querySelector('.animated-heading');
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heading.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    observer.observe(heading);
+  });
+  

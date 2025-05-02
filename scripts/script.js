@@ -27,47 +27,88 @@ flatpickr("#quick-date-2", {
     document.getElementById("thanks-msg").classList.add("visible");
   }
 
-  //Za abour us sekciju
   const steps = document.querySelectorAll('.about-snap .step');
   const aboutSection = document.querySelector('.about-lock');
   let currentStep = 0;
   let locked = false;
   let observerStarted = false;
+  let isScrolling = false;
   
+  // Blokira normalni scroll kad zaključano
   function lockScroll(e) {
     if (locked) e.preventDefault();
   }
   
-  function handleStepScroll(e) {
-    if (!locked) return;
+  // Koristi se za deltaY (wheel) i direction (touch)
+  function changeStep(direction) {
+    if (isScrolling) return; // sprječava spam
+    isScrolling = true;
   
-    if (e.deltaY > 0 && currentStep < steps.length) {
+    if (direction === 'down' && currentStep < steps.length) {
       steps[currentStep].classList.add('revealed');
       currentStep++;
+    } else if (direction === 'up' && currentStep > 0) {
+      currentStep--;
+      steps[currentStep].classList.remove('revealed');
+    }
   
-      if (currentStep === steps.length) {
-        setTimeout(() => {
-          locked = false;
-          window.removeEventListener('wheel', lockScroll);
-          window.removeEventListener('touchmove', lockScroll);
-          aboutSection.style.height = 'auto';
-        }, 600);
-      }
+    // Otključaj scroll kad su svi prikazani
+    if (currentStep === steps.length) {
+      setTimeout(() => {
+        locked = false;
+        window.removeEventListener('wheel', lockScroll);
+        window.removeEventListener('touchmove', lockScroll);
+        window.removeEventListener('wheel', handleWheel, { passive: false });
+        window.removeEventListener('touchstart', handleTouchStart);
+        window.removeEventListener('touchend', handleTouchEnd);
+        aboutSection.style.height = 'auto';
+      }, 600);
+    }
+  
+    // Pauza između koraka (debounce)
+    setTimeout(() => {
+      isScrolling = false;
+    }, 400);
+  }
+  
+  // Scroll kotačić
+  function handleWheel(e) {
+    if (!locked) return;
+    const direction = e.deltaY > 0 ? 'down' : 'up';
+    changeStep(direction);
+  }
+  
+  // Touch podrška za mobitel
+  let startY = 0;
+  function handleTouchStart(e) {
+    startY = e.touches[0].clientY;
+  }
+  
+  function handleTouchEnd(e) {
+    const endY = e.changedTouches[0].clientY;
+    const diff = startY - endY;
+    if (Math.abs(diff) > 30) {
+      const direction = diff > 0 ? 'down' : 'up';
+      changeStep(direction);
     }
   }
   
-  // Observer da pokrene animaciju tek kad se sekcija vidi
+  // Observer pokreće skriptu kad sekcija uđe u viewport
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !observerStarted) {
         locked = true;
         observerStarted = true;
+  
         window.addEventListener('wheel', lockScroll, { passive: false });
         window.addEventListener('touchmove', lockScroll, { passive: false });
-        window.addEventListener('wheel', handleStepScroll, { passive: false });
+  
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
       }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 1 });
   
   observer.observe(aboutSection);
   
@@ -106,4 +147,54 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show');
   hamburger.textContent = hamburger.textContent === '☰' ? '✖' : '☰';
 });
+
+
+
+
+
+//scroll animacije
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fleetCards = document.querySelectorAll(".fleet-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible"); // za ponavljanje
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  fleetCards.forEach(card => observer.observe(card));
+});
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const islands = document.querySelectorAll(".island");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible"); // omogućuje ponavljanje
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    islands.forEach(island => observer.observe(island));
+  });
+
 

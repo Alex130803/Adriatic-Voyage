@@ -2,6 +2,8 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    overflow-x: hidden;
   }
   
   .navbar {
@@ -273,6 +275,7 @@ body {
     flex-direction: column;
     gap: 1.2rem;
     z-index: 999;
+    margin-bottom: 100px;
   }
   
   .form-row {
@@ -322,11 +325,52 @@ body {
     display: block;
   }
 
+
+  .animated-title-onload  {
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    margin: 60px 0 30px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideIn 2s ease-out 0.4s forwards;
+    
+  }
+  
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animated-title-onload2  {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    margin: 60px 0 30px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideIn 1.2s ease-out 3.4s forwards;
+  }
+  
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .highlight-adriatic {
+    color: #f6a800; /* npr. duboko tirkizna */
+  }
+  
 /*OUR FLEET*/
 .fleet-section {
     background-color: #f9f9f9;
     padding: 4rem 1rem;
     text-align: center;
+    margin-top: 100px;
   }
   
   .fleet-container {
@@ -363,7 +407,29 @@ body {
     width: 40%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding-bottom: 1.5rem; /* dodaj da dugme ima prostora */
+
+
+    opacity: 0;
+  transform: translateX(0);
+  transition: transform 1.4s ease-out, opacity 1.4s ease-out;
+  will-change: transform, opacity;
   }
+
+  
+  /* POČETNA POZICIJA */
+.fleet-card.from-left {
+  transform: translateX(-150px);
+}
+.fleet-card.from-right {
+  transform: translateX(150px);
+}
+
+/* KADA SE POJAVI */
+.fleet-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+  
   
   .fleet-card:hover {
     transform: translateY(-6px);
@@ -459,6 +525,26 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     gap: 2rem;
+
+    opacity: 0;
+    transform: translateX(0);
+    transition: transform 1.4s ease-out, opacity 1.4s ease-out;
+    will-change: transform, opacity;
+  }
+  
+  
+  /* Startne pozicije */
+  .island.from-left {
+    transform: translateX(-150px);
+  }
+  .island.from-right {
+    transform: translateX(150px);
+  }
+  
+  /* Kada postane vidljivo */
+  .island.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
   
   .island img {
@@ -672,6 +758,8 @@ body {
   .request-form-popup {
     display: none !important;
   }
+
+  
 }
 
 /* MOBILNA VERZIJA */
@@ -868,6 +956,26 @@ body {
     padding: 0;
   }
 
+  .animated-title-onload  {
+    text-align: center;
+    font-size: 2.2rem;
+    font-family: 'Playfair Display', serif;
+    margin: 60px 0 15px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideIn 2s ease-out 0.4s forwards;
+    
+  }
+
+  .animated-title-onload2  {
+    text-align: center;
+    font-size: 1.7rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideIn 1.2s ease-out 3.4s forwards;
+  }
 }
 
 /* MANJE REZOLUCIJE */

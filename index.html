@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adriatic Voyage</title>
 
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
   <!-- vanta -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
@@ -82,12 +85,19 @@
           <option>Lopud</option>
           <option>Kolocep</option>
           <option>Sipan</option>
+          <option>Old town</option>
+          <option>Captain's choice</option>
         </select>
         <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
       </div>
       <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
     </form>
 </section>
+
+<!-- Animated Section Title (on load) -->
+<h1 class="animated-title-onload">The <span class="highlight-adriatic">Adriatic</span> is more than a sea, </h1>
+<h2 class="animated-title-onload2">It’s a <span class="highlight-adriatic">voyage</span> through elegance, heritage, and crystal horizons.</h2>
+
 
 <!-- OUR FLEET -->
 <section class="fleet-section">
@@ -97,7 +107,7 @@
   
       <div class="fleet-cards">
         <!-- Speedboat -->
-        <div class="fleet-card">
+        <div class="fleet-card from-left">
           <img src="assets/img/gliser.png" alt="Janmor 560 Speedboat" />
           <div class="fleet-info">
             <h3>Janmor 560</h3>
@@ -120,7 +130,7 @@
         </div>
   
         <!-- Yacht -->
-        <div class="fleet-card">
+        <div class="fleet-card from-right">
             <img src="assets/img/jahta.jpg" alt="Prestige 36 Yacht" />
             <div class="fleet-info">
               <h3>Prestige 36</h3>
@@ -150,7 +160,7 @@
 <!-- TURE -->
 <section class="island-section">
     <!-- Stari grad -->
-    <div class="island">
+    <div class="island from-left">
       <img src="assets/img/dubrovnik-old-town.jpg" alt="Dubrovnik Old Town">
       <div class="island-info">
         <h3>Dubrovnik - Old Town</h3>
@@ -165,7 +175,7 @@
     </div>
     <div class="about-lines-ture top-line"></div>
     <!-- Koločep -->
-    <div class="island">
+    <div class="island from-right">
       <img src="assets/img/kolocep.jpg" alt="Koločep Island">
       <div class="island-info">
         <h3>Koločep</h3>
@@ -180,7 +190,7 @@
     </div>
     <div class="about-lines-ture top-line"></div>
     <!-- Lopud -->
-    <div class="island">
+    <div class="island from-left">
       <img src="assets/img/lopud.jpg" alt="Lopud Island">
       <div class="island-info">
         <h3>Lopud</h3>
@@ -195,7 +205,7 @@
     </div>
     <div class="about-lines-ture top-line"></div>
     <!-- Šipan -->
-    <div class="island">
+    <div class="island from-right">
       <img src="assets/img/Sipan.jpg" alt="Šipan Island">
       <div class="island-info">
         <h3>Šipan</h3>
@@ -238,7 +248,7 @@
       <li><a href="#tours">Tours</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <p class="footer-copy">© 2025 Adriatic Voyage. All rights reserved.</p>
+    <p class="footer-copy">© 2025 Adriatic Voyage. All rights reserved. | Powered by <a href="https://avision360.com" target="_blank">Avision360</a></p>
   </div>
 </footer>  
   

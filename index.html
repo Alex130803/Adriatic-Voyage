@@ -16,35 +16,55 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div style="color: white;" class="hamburger" id="hamburger">☰</div>
 
-  <div class="logo">
-    <img src="assets/img/logo.png" alt="Adriatic Voyage logo">
-  </div>
 
-  <!-- Jedinstvena vertikalna navigacija za mobile -->
-  <ul class="nav-menu" id="navMenu">
-    <li><a href="index.php">Home</a></li>
-    <li><a href="#island-section">Tours</a></li>
-    <li><a href="#about1">About</a></li>
-    <li><a href="https://wa.me/385996682983">Contact</a></li>
-  </ul>
 
-  <!-- Desktop navigacija (sakrivena u mobile prikazu) -->
-  <ul class="nav-left desktop-nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#island-section">Tours</a></li>
-  </ul>
-  <ul class="nav-right desktop-nav">
-    <li><a href="#about1">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
-
+<!-- BOOK -->
+<section id="booking" class="quick-request">
+  <form class="request-form-card" method="POST" action="send.php" onsubmit="showThanks(event)">
+    <div class="form-row">
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="tel" placeholder="Phone Number" name="phone" required>
+      <input type="email" name="email" placeholder="*Email">
+    </div>
+    <div class="form-row">
+      <select name="destination" required>
+        <option disabled selected>Choose a boat</option>
+        <option>Janmor 560 (max 4pax)</option>
+        <option>Prestige 36 (max 12 pax)</option>
+      </select>
+      <select name="duration" required>
+        <option selected disabled>Select a duration</option>
+        <option value="4h">4h</option>
+        <option value="6h">6h</option>
+        <option value="8h">8h</option>
+        <option value="2h">Sunset tour</option>
+      </select>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
+    </div>
+    <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
+  </form>
+</section>
 <!-- SLIKAA -->
 <section class="hero-yacht">
+  <!-- Tamni overlay je dodan u CSS putem ::before -->
+  <div class="hero-content">
+    <div class="hero">
+      <h1 class="animated-title-onload">
+        The <span class="highlight-adriatic">Adriatic</span> is more than a Sea,
+      </h1>
+    </div>
+    <div class="hero2">
+      <h2 class="animated-title-onload2">
+        It’s a <span class="highlight-adriatic">voyage</span> through elegance, heritage, and crystal horizons.
+      </h2>
+    </div>
+  </div>
+
+
+  
+</section>
+
   <!-- MOBILNA BOOKING BAR (trigger) -->
   <div class="width_za_formu">
     <div class="mobile-booking-bar">
@@ -71,42 +91,35 @@
     </form>
   </div>
 </section>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div style="color: white;" class="hamburger" id="hamburger">☰</div>
+
+  <div class="logo">
+    <img src="assets/img/logo.png" alt="Adriatic Voyage logo">
+  </div>
+
+  <!-- Jedinstvena vertikalna navigacija za mobile -->
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.php">Home</a></li>
+    <li><a href="#island-section">Tours</a></li>
+    <li><a href="#about1">About</a></li>
+    <li><a href="mailto:Bjeloperajosko@gmail.com" target="_blank">Contact</a></li>
 
 
-<!-- BOOK -->
-<section id="booking" class="quick-request">
-  <form class="request-form-card" method="POST" action="send.php" onsubmit="showThanks(event)">
-    <div class="form-row">
-      <input type="text" placeholder="Name" name="name" required>
-      <input type="tel" placeholder="Phone Number" name="phone" required>
-      <input type="email" name="email" placeholder="*Email">
-    </div>
-    <div class="form-row">
-      <select name="destination" required>
-        <option disabled selected>Where do you want to go?</option>
-        <option value="Lopud">Lopud</option>
-        <option value="Kolocep">Kolocep</option>
-        <option value="Sipan">Sipan</option>
-        <option value="Old town">Old town</option>
-        <option value="Captain's choice">Captain's choice</option>
-      </select>
-      <select name="duration" required>
-        <option selected disabled>Select a duration</option>
-        <option value="2h">2h</option>
-        <option value="4h">4h</option>
-        <option value="6h">6h</option>
-        <option value="8h">8h</option>
-      </select>
-      <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
-    </div>
-    <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
-  </form>
-</section>
+  </ul>
 
+  <!-- Desktop navigacija (sakrivena u mobile prikazu) -->
+  <ul class="nav-left desktop-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#island-section">Tours</a></li>
+  </ul>
+  <ul class="nav-right desktop-nav">
+    <li><a href="#about1">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
 
-<!-- Animated Section Title (on load) -->
-<h1 class="animated-title-onload">The <span class="highlight-adriatic">Adriatic</span> is more than a Sea, </h1>
-<h2 class="animated-title-onload2">It’s a <span class="highlight-adriatic">voyage</span> through elegance, heritage, and crystal horizons.</h2>
 
 
 <!-- OUR FLEET -->
@@ -325,20 +338,18 @@
       <input type="number" name="passengers" placeholder="Passengers">
 
       <select name="destination">
-        <option selected disabled>*Select a destination</option>
-        <option>Lopud</option>
-        <option>Koločep</option>
-        <option>Šipan</option>
-        <option>Old town</option>
-        <option>Captain's choice</option>
+        <option selected disabled>*Select a Boat</option>
+        <option>Janmor 560 (max 4pax)</option>
+        <option>Prestige 36 (max 12 pax)</option>
       </select>
 
       <select name="duration">
         <option selected disabled>*Select a duration</option>
-        <option>2h</option>
+        
         <option>4h</option>
         <option>6h</option>
         <option>8h</option>
+        <option>Sunset tour</option>
       </select>
 
       <textarea name="message" placeholder="Message"></textarea>

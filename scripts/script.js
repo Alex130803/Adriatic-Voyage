@@ -167,88 +167,75 @@ hamburger.addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", function () {
   const fleetCards = document.querySelectorAll(".fleet-card");
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-      } else {
-        entry.target.classList.remove("visible"); // za ponavljanje
+        observer.unobserve(entry.target); // deaktivira ponovno promatranje
       }
     });
-  }, {
-    threshold: 0.2
-  });
+  }, { threshold: 0.2 });
 
   fleetCards.forEach(card => observer.observe(card));
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const islands = document.querySelectorAll(".island");
 
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const islands = document.querySelectorAll(".island");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible"); // omogućuje ponavljanje
-        }
-      });
-    }, {
-      threshold: 0.2
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.2 });
 
-    islands.forEach(island => observer.observe(island));
-  });
-
-
-
+  islands.forEach(island => observer.observe(island));
+});
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const textEl = document.querySelector('.animated-text');
-    const text = textEl.textContent;
-    textEl.innerHTML = '';
-  
-    // Podijeli slova i dodaj span s delayem
-    for (let i = 0; i < text.length; i++) {
-      const span = document.createElement('span');
-      span.textContent = text[i] === ' ' ? '\u00A0' : text[i]; // \u00A0 = &nbsp;
-      span.style.transitionDelay = `${i * 40}ms`;
-      textEl.appendChild(span);
-    }
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          textEl.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.5 });
-  
-    observer.observe(textEl);
-  });
-  
+document.addEventListener("DOMContentLoaded", function () {
+  const textEl = document.querySelector('.animated-text');
+  const text = textEl.textContent;
+  textEl.innerHTML = '';
+
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+    span.style.transitionDelay = `${i * 40}ms`;
+    textEl.appendChild(span);
+  }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        textEl.classList.add('visible');
+        observer.unobserve(textEl);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(textEl);
+});
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const heading = document.querySelector('.animated-heading');
 
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heading.classList.add('visible');
+        observer.unobserve(heading);
+      }
+    });
+  }, { threshold: 0.5 });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const heading = document.querySelector('.animated-heading');
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          heading.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.5 });
-  
-    observer.observe(heading);
-  });
+  observer.observe(heading);
+});
+
 
 // REVIEWS
 const track = document.querySelector(".carousel-track");

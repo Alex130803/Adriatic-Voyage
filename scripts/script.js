@@ -299,31 +299,41 @@ function closePopup() {
 
 
 
+//ovo za forme
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = document.querySelectorAll("form[action='send.php']");
 
-document.getElementById("enquiry-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // spriječi reload
+  forms.forEach(form => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
 
-  const form = e.target;
-  const formData = new FormData(form);
-
-  fetch("php/posalji.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    if (data.trim() === "OK") {
-      form.style.display = "none";
-      document.getElementById("success-message").style.display = "block";
-    } else {
-      alert("Greška: " + data);
-    }
-  })
-  .catch(error => {
-    alert("Došlo je do greške.");
-    console.error(error);
+      fetch("send.php", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => {
+          if (data.trim() === "OK") {
+            if (form.querySelector("#success-message")) {
+              form.style.display = "none";
+              document.getElementById("success-message").style.display = "block";
+            } else {
+              alert("✅ Request sent successfully!");
+              form.reset();
+            }
+          } else {
+            alert("Greška: " + data);
+          }
+        })
+        .catch(err => {
+          console.error("Error sending form:", err);
+          alert("Greška pri slanju.");
+        });
+    });
   });
 });
+
 
 
 

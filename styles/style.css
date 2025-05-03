@@ -241,7 +241,7 @@ body {
   }
   
   .popup-content button {
-    background-color: #f6a800;
+    background-color: #003B6F;
     color: black;
     font-weight: 600;
     cursor: pointer;
@@ -262,7 +262,7 @@ body {
   /* SLIKA */
 .hero-yacht {
     height: 50vh;
-    background: url('../assets/img/jahta_landing.jpg') center center / cover no-repeat;
+    background: url('../assets/img/jahta_landing-min.jpg') center center / cover no-repeat;
     position: relative;
     z-index: 1;
   }
@@ -279,12 +279,12 @@ body {
     display: flex;
     justify-content: center;
     padding: 3rem 1rem;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
   }
   
   .request-form-card {
     position: absolute;
-    bottom: 249px;
+    bottom: 175px;
     background: white;
     padding: 2rem;
     border-radius: 18px;
@@ -635,7 +635,7 @@ body {
   }
   
   .explore-btn:hover {
-    background-color: #e39500;
+    background-color: #0084ff;
   }
   
   .explore-btn:hover i {
@@ -989,7 +989,7 @@ body {
   }
 
   .mobile-booking-bar button {
-    background: #f6a800;
+    background: #003B6F;
     border: none;
     padding: 0.6rem 0.8rem;
     border-radius: 10px;
@@ -1018,15 +1018,44 @@ body {
   }
 
   .mobile-request-form {
-    width: 90%;
-    max-width: 350px;
+    width: 80%;
+    max-width: 400px;
     background: #fff;
-    padding: 1.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    margin: auto;
+  }
+
+  .mobile-request-form input,
+  .mobile-request-form select,
+  .mobile-request-form {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 80%;
+  }
+
+  .mobile-request-form button {
+    background-color: #002f5a;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+
+  .mobile-request-form button i {
+    font-size: 1.1rem;
   }
 
   .request-form-card{
@@ -1135,7 +1164,7 @@ body {
   .about-lines-ture {
     width: 40%;
     height: 1.5px;
-    background-color: #f5a300;
+    background-color: #003B6F;
     margin: 0 auto;
     border-radius: 2px;
     opacity: 50%;

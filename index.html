@@ -18,7 +18,7 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="hamburger" id="hamburger">☰</div>
+  <div style="color: white;" class="hamburger" id="hamburger">☰</div>
 
   <div class="logo">
     <img src="assets/img/logo.png" alt="Adriatic Voyage logo">
@@ -45,65 +45,67 @@
 
 <!-- SLIKAA -->
 <section class="hero-yacht">
-<!-- MOBILNA BOOKING BAR (trigger) -->
- <div class="width_za_formu">
-  <div class="mobile-booking-bar">
-    <input type="text" placeholder="Where to?" readonly id="quickBookingTrigger" />
-    <button id="quickBookingBtn"><i class="fas fa-calendar-alt"></i></button>
+  <!-- MOBILNA BOOKING BAR (trigger) -->
+  <div class="width_za_formu">
+    <div class="mobile-booking-bar">
+      <input type="text" placeholder="Where to?" readonly id="quickBookingTrigger" />
+      <button id="quickBookingBtn"><i style="color: white" class="fas fa-calendar-alt"></i></button>
+    </div>
   </div>
- </div>
 
-<!-- POPUP FORMA ZA MOBILNU VERZIJU -->
-<div class="mobile-request-popup" id="requestPopup">
-  <form class="mobile-request-form" id="popupForm">
-    <input type="text" placeholder="Name" required />
-    <input type="tel" placeholder="Phone Number" required />
-    <input type="date" />
-    <select>
-      <option>Where do you want to go?</option>
-      <option>Koločep</option>
-      <option>Lopud</option>
-      <option>Šipan</option>
-    </select>
-    <button class="request-submit"><i class="fas fa-paper-plane"></i> Request</button>
-  </form>
-</div>
-
+  <!-- POPUP FORMA ZA MOBILNU VERZIJU -->
+  <div class="mobile-request-popup" id="requestPopup">
+    <form class="mobile-request-form" id="popupForm" method="POST" action="send.php" onsubmit="showThanks(event)">
+      <h2 style="margin-bottom: 0;">Request Tour</h2>
+      <input type="text" placeholder="Name" name="name" required />
+      <input type="email" name="email" placeholder="*Email">
+      <input type="tel" placeholder="Phone Number" name="phone" required />
+      <input type="date" name="date" />
+      <select name="destination" required>
+        <option disabled selected>Where do you want to go?</option>
+        <option value="Koločep">Koločep</option>
+        <option value="Lopud">Lopud</option>
+        <option value="Šipan">Šipan</option>
+      </select>
+      <button class="request-submit" type="submit"><i class="fas fa-paper-plane"></i> Request</button>
+    </form>
+  </div>
 </section>
+
 
 <!-- BOOK -->
 <section id="booking" class="quick-request">
-    <form class="request-form-card" onsubmit="showThanks(event)">
-      <div class="form-row">
-        <input type="text" placeholder="Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="text" id="quick-date-2" placeholder="Date (optional)">
-      </div>
-      <div class="form-row">
-        <select required>
-          <option disabled selected>Where do you want to go?</option>
-          <option>Lopud</option>
-          <option>Kolocep</option>
-          <option>Sipan</option>
-          <option>Old town</option>
-          <option>Captain's choice</option>
-        </select>
-        <select required>
-          <option selected disabled>Select a duration</option>
-          <option>2h</option>
-          <option>4h</option>
-          <option>6h</option>
-          <option>8h</option>
-  
-        </select>
-        <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
-      </div>
-      <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
-    </form>
+  <form class="request-form-card" method="POST" action="send.php" onsubmit="showThanks(event)">
+    <div class="form-row">
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="tel" placeholder="Phone Number" name="phone" required>
+      <input type="email" name="email" placeholder="*Email">
+    </div>
+    <div class="form-row">
+      <select name="destination" required>
+        <option disabled selected>Where do you want to go?</option>
+        <option value="Lopud">Lopud</option>
+        <option value="Kolocep">Kolocep</option>
+        <option value="Sipan">Sipan</option>
+        <option value="Old town">Old town</option>
+        <option value="Captain's choice">Captain's choice</option>
+      </select>
+      <select name="duration" required>
+        <option selected disabled>Select a duration</option>
+        <option value="2h">2h</option>
+        <option value="4h">4h</option>
+        <option value="6h">6h</option>
+        <option value="8h">8h</option>
+      </select>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Request</button>
+    </div>
+    <p id="thanks-msg" class="hidden">Thank you! We'll contact you as soon as possible.</p>
+  </form>
 </section>
 
+
 <!-- Animated Section Title (on load) -->
-<h1 class="animated-title-onload">The <span class="highlight-adriatic">Adriatic</span> is more than a sea, </h1>
+<h1 class="animated-title-onload">The <span class="highlight-adriatic">Adriatic</span> is more than a Sea, </h1>
 <h2 class="animated-title-onload2">It’s a <span class="highlight-adriatic">voyage</span> through elegance, heritage, and crystal horizons.</h2>
 
 
@@ -315,14 +317,14 @@
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
     <h2>Request a Boat</h2>
-    <form id="enquiry-form">
-      <input type="date" name="date" required>
-      <input type="text" name="name" placeholder="*Name" required>
-      <input type="email" name="email" placeholder="*Email" required>
-      <input type="tel" name="phone" placeholder="*Phone" required>
+    <form id="enquiry-form" method="POST" action="send.php" onsubmit="showThanks(event)">
+      <input type="date" name="date">
+      <input type="text" name="name" placeholder="*Name">
+      <input type="email" name="email" placeholder="*Email">
+      <input type="tel" name="phone" placeholder="*Phone">
       <input type="number" name="passengers" placeholder="Passengers">
 
-      <select name="destination" required>
+      <select name="destination">
         <option selected disabled>*Select a destination</option>
         <option>Lopud</option>
         <option>Koločep</option>
@@ -331,7 +333,7 @@
         <option>Captain's choice</option>
       </select>
 
-      <select name="duration" required>
+      <select name="duration">
         <option selected disabled>*Select a duration</option>
         <option>2h</option>
         <option>4h</option>
@@ -340,7 +342,7 @@
       </select>
 
       <textarea name="message" placeholder="Message"></textarea>
-      <button type="submit">Send Request</button>
+      <button style="color: white;" type="submit">Send Request</button>
     </form>
     <div id="success-message" style="display:none; margin-top:15px; color:green;">
       <h2>✅ Thank you!</h2>

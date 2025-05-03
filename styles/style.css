@@ -1035,6 +1035,11 @@ body {
     right: 5%;
   }
 
+  .hero{
+    position: absolute;
+    top: 4%;
+  }
+
   .mobile-booking-bar input {
     border: none;
     outline: none;
@@ -1281,7 +1286,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
     animation: fadeSlideIn 2s ease-out 0.4s forwards;
-    
+    padding: 0px 20px 0px 20px;
   }
 
   .animated-title-onload2  {

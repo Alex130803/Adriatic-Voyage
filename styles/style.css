@@ -149,6 +149,7 @@ body {
     display: block;
     pointer-events: none;
     user-select: none;
+    z-index: 999;
   }
   
   /* Floating buttons */
@@ -404,6 +405,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    z-index: 999;
   }
 
   .hero2 {
@@ -414,6 +416,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    z-index: 999;
   }
   
   @keyframes fadeSlideIn {

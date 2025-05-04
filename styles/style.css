@@ -989,7 +989,7 @@ body {
     width: 89%;
     max-width: 314px;
     position: absolute;
-    top: 81%;
+    top: 77%;
     justify-self: anchor-center !important;
     z-index: 111;
   }
@@ -1146,7 +1146,7 @@ body {
   .navbar {
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: sticky;
     padding: 3rem 2rem;
     z-index: 111;
   }
@@ -1197,7 +1197,7 @@ body {
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: #0084ff;
+    background-color: #003B6F;
     width: 100%;
     padding: 1.5rem 0;
     gap: 1.5rem;
@@ -1209,7 +1209,6 @@ body {
 
   .nav-menu.show {
     display: flex;
-    position: absolute;
     right: 0;
     width: 50%;
   }
@@ -1221,7 +1220,7 @@ body {
   .nav-menu a {
     text-decoration: none;
     font-weight: 600;
-    color: #111;
+    color: #ffffff;
     font-size: 1.15rem;
   }
 
@@ -1286,7 +1285,7 @@ body {
 
   .animated-title-onload  {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Playfair Display', serif;
     margin: 60px 0 15px;
     opacity: 0;
@@ -1297,7 +1296,7 @@ body {
 
   .animated-title-onload2  {
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-family: 'Playfair Display', serif;
     margin: 0;
     opacity: 0;

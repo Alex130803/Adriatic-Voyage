@@ -951,6 +951,12 @@ body {
 
 /* MOBILNA VERZIJA */
 @media (max-width: 768px) {
+  .hero-yacht {
+    background-attachment: scroll !important; /* sprečava bug */
+    background-position: center center;
+    background-size: cover;
+  }
+
   .step{
     line-height: 1.2;
   }
